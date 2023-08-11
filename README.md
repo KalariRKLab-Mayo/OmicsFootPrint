@@ -10,7 +10,7 @@ $path_conda create --prefix $path_package -c conda-forge python=3.9 cudatoolkit 
 $path_conda activate $path_package
 # lib install
 
-pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9.4.0 scikit-image shapely==1.8.0 descartes==1.1.0 
+pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9.4.0 scikit-image shapely==1.8.0 descartes==1.1.0 shap==0.42.1 opencv_python==4.7.0.72
 
 ```
 
@@ -61,5 +61,9 @@ python $SLIM_SCRIPTS/batch_predict_image_multicat.py $data_files/test $LOGDIR/Ef
 cat $LOGDIR/train.txt $LOGDIR/val.txt $LOGDIR/test.txt|grep -v "loaded" > $LOGDIR/all.txt
 #check model performance
 python $SLIM_SCRIPTS/metrics_patchlevel_multicat.py $LOGDIR/all.txt > $LOGDIR/metrics.txt
+
+#generate shap files
+find  $data_files -name '*png' > $data_files/shap_input.txt
+python $SLIM_SCRIPTS/shap_cnn_model.py -m $LOGDIR/EfficientNetV2_Nadam_1e-05-CategoricalCrossentropy/my_model.h5 -i $data_files/shap_input.txt -o $data_files/shap_output -c 0,1,2,3
 
 ```

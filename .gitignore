@@ -1,2 +1,4 @@
 sample_data/
 OmicsFootPrint_conda_env/
+src/General-ImageClassifier_efficient/tmp
+model.sh
