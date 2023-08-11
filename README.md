@@ -40,7 +40,7 @@ python $SLIM_SCRIPTS/train.py  \
   -p 256 \
   -l $LOGDIR \
   -r 0.00001 \
-  -L BinaryCrossentropy \
+  -L CategoricalCrossentropy \ #for two class:BinaryCrossentropy
   -e 100 -b 32  -V DEBUG \
   --use-multiprocessing True --filetype images
 
