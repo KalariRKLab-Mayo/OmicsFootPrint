@@ -43,9 +43,10 @@ python $SLIM_SCRIPTS/train.py  \
   -L CategoricalCrossentropy \ #for two class:BinaryCrossentropy
   -e 100 -b 32  -V DEBUG \
   --use-multiprocessing True --filetype images
-
+```
+## Prediction
+```
 #predict the images with the trained model
-
 #2 class
 #python $SLIM_SCRIPTS/batch_predict_image.py $data_files/val $LOGDIR/EfficientNetV2_Nadam_1e-05-BinaryCrossentropy/my_model.h5 val > $LOGDIR/val.txt
 #python $SLIM_SCRIPTS/batch_predict_image.py $data_files/train $LOGDIR/EfficientNetV2_Nadam_1e-05-BinaryCrossentropy/my_model.h5 train > $LOGDIR/train.txt
@@ -61,7 +62,9 @@ python $SLIM_SCRIPTS/batch_predict_image_multicat.py $data_files/test $LOGDIR/Ef
 cat $LOGDIR/train.txt $LOGDIR/val.txt $LOGDIR/test.txt|grep -v "loaded" > $LOGDIR/all.txt
 #check model performance
 python $SLIM_SCRIPTS/metrics_patchlevel_multicat.py $LOGDIR/all.txt > $LOGDIR/metrics.txt
-
+```
+## SHAP
+```
 #generate shap files
 find  $data_files -name '*png' > $data_files/shap_input.txt
 python $SLIM_SCRIPTS/shap_cnn_model.py -m $LOGDIR/EfficientNetV2_Nadam_1e-05-CategoricalCrossentropy/my_model.h5 -i $data_files/shap_input.txt -o $data_files/shap_output -c 0,1,2,3
