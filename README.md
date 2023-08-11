@@ -44,6 +44,12 @@ python $SLIM_SCRIPTS/train.py  \
   -e 100 -b 32  -V DEBUG \
   --use-multiprocessing True --filetype images
 ```
+## Tensorboard
+```
+#visualize tensorboard
+tensorboard --logdir $run_dir/model_training/EfficientNe2_Nadam_1e-05-CategoricalCrossentropy/ --host localhost --port 6060
+```
+
 ## Prediction
 ```
 #predict the images with the trained model
