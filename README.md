@@ -10,7 +10,7 @@ $path_conda create --prefix $path_package -c conda-forge python=3.9 cudatoolkit 
 $path_conda activate $path_package
 # lib install
 
-pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9.4.0 scikit-image shapely==1.8.0 descartes==1.1.0 shap==0.42.1 opencv_python==4.7.0.72
+pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9.4.0 scikit-image shapely==1.8.0 descartes==1.1.0 shap==0.42.1 opencv_python==4.7.0.72 autogluon==0.7.0
 
 ```
 
