@@ -14,12 +14,22 @@ pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9
 
 ```
 
+## Sample data
+
+```
+#tar gunzip sample data
+tar -zxvf sample_data.tar.gz
+```
+
 ## Model training
 ```
 
 #input param
-script_dir=/path/code/OmicsFootPrint
-run_dir=/path/code/OmicsFootPrint/run
+#script_dir=/path/code/OmicsFootPrint
+#run_dir=/path/code/OmicsFootPrint/run
+
+run_dir=./sample_data
+script_dir=./src/General-ImageClassifier_efficient
 
 #create splits
 #1. split slides in to train(15%),val(15%),test(15%) according to number of patches and outcome labels (example file : $script_dir/src/epi_label_pred/train_test_val_anno.batch2.xls)
@@ -30,7 +40,7 @@ run_dir=/path/code/OmicsFootPrint/run
 SLIM_SCRIPTS=$script_dir
 LOGDIR=$run_dir/model_training
 mkdir -p $LOGDIR
-data_files=$run_dir/images
+data_files=$run_dir/sample
 
 python $SLIM_SCRIPTS/train.py  \
   -t $data_files/train \
