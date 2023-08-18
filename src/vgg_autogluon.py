@@ -52,7 +52,8 @@ import tensorflow as tf
 
 # Constants
 SEED = "1010"
-
+#path to save autogluon model
+save_path="./sample_data/vgg_ag"
 # Loading Images
 circos_images_full = glob.glob("./sample_data/sample/*/*/im.*.png")
 circos_images = {}
@@ -161,7 +162,6 @@ train_df['label']=y_ori_train
 test_df['label']=y_ori_test
 val_df['label']=y_ori_val
 
-save_path="/infodev1/infoderm/Projects/Naresh/scripts/Kiosk/runs/tmp_ag"
 predictor = task(label='label', path=save_path,eval_metric = "balanced_accuracy").fit(train_data=train_df,tuning_data=val_df)
 
 performance = predictor.evaluate(test_df)
