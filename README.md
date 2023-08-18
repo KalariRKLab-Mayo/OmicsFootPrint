@@ -17,6 +17,8 @@ pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9
 ## Sample data
 
 ```
+#change to script directory
+#cd OmicsFootPrint
 #tar gunzip sample data
 tar -zxvf sample_data.tar.gz
 ```
