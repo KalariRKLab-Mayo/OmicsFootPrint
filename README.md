@@ -6,11 +6,11 @@ path_package=/path/conda/tf_new_epi_package
 path_conda=/path/anaconda/condabin/conda
 
 #create conda env
-$path_conda create --prefix $path_package -c conda-forge python=3.9 cudatoolkit cudnn tensorflow-gpu=2.10.0
+$path_conda create --prefix $path_package -c conda-forge python=3.9 cudatoolkit cudnn tensorflow-gpu=2.10.0 r-essentials r-base
 $path_conda activate $path_package
 # lib install
 
-pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9.4.0 scikit-image shapely==1.8.0 descartes==1.1.0 shap==0.42.1 opencv_python==4.7.0.72 autogluon==0.7.0
+pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9.4.0 scikit-image shapely==1.8.0 descartes==1.1.0 shap==0.42.1 opencv_python==4.7.0.72 autogluon==0.7.0 
 
 ```
 
@@ -18,9 +18,17 @@ pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9
 
 ```
 #change to script directory
-#cd OmicsFootPrint
+cd OmicsFootPrint
 #tar gunzip sample data
 tar -zxvf sample_data.tar.gz
+
+#generate circos plots
+dir=`pwd`/sample_data
+Rscript ./src/circos.plot.cnv.snv.exprs.generic.R $dir
+
+cd sample_data
+#create sample directory with train,val & test
+bash create_train_val_test.sh
 ```
 
 ## Model training
