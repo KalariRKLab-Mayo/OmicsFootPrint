@@ -12,6 +12,8 @@ $path_conda activate $path_package
 
 pip install wandb pandas==1.5.3  scikit-learn==1.2.2 matplotlib==3.5.0 Pillow==9.4.0 scikit-image shapely==1.8.0 descartes==1.1.0 shap==0.42.1 opencv_python==4.7.0.72 autogluon==0.7.0 
 
+#install Rscripts
+Rscript -e 'install.packages("reshape2",repos="cloud.r-project.org")'
 ```
 
 ## Sample data
@@ -35,7 +37,7 @@ bash create_train_val_test.sh
 ```
 
 #input param
-#script_dir=/path/code/OmicsFootPrint
+#script_dir_main=/path/code/OmicsFootPrint
 #run_dir=/path/code/OmicsFootPrint/run
 
 run_dir=./sample_data
@@ -93,8 +95,17 @@ python $SLIM_SCRIPTS/metrics_patchlevel_multicat.py $LOGDIR/all.txt > $LOGDIR/me
 ```
 #generate shap files
 find  $data_files -name '*png' > $data_files/shap_input.txt
-python $SLIM_SCRIPTS/shap_cnn_model.py -m $LOGDIR/EfficientNetV2_Nadam_1e-05-CategoricalCrossentropy/my_model.h5 -i $data_files/shap_input.txt -o $data_files/shap_output -c 0,1,2,3
+python $SLIM_SCRIPTS/shap_cnn_model.py -m $LOGDIR/EfficientNetV2_Nadam_1e-05-BinaryCrossentropy/my_model.h5 -i $data_files/shap_input.txt -o $data_files/shap_output -n 200 -c 0,1 #for four classes use : 0,1,2,3 for num_vals :20000 is used in the results
 
+#post processing shapfiles
+cd $run_dir/sample/shap_output #sample_data
+
+cwd=`pwd`
+for i in `ls *.txt`
+do
+	samp=`echo $i|sed -e 's/.txt//g'`
+	Rscript $script_dir_main/src/shapley.peaks.R $cwd $samp
+done
 ```
 
 ## Other Model training : DenseNet

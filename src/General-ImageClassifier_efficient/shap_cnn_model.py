@@ -46,12 +46,17 @@ parser.add_argument("-c", "--classnames",
                     dest='classnames',
                     required=True,
                     help="File path to output shap files")
+parser.add_argument("-n", "--num_evals",
+                    dest='num_evals',
+                    required=True,
+                    help="num evals for shap command")
+
 args = parser.parse_args()
 filepath = args.filepath
 input_folder = args.input_file
 output_folder = args.output_folder
 classnames = args.classnames
-
+num_evals = int(args.num_evals)
 #output_folder.mkdir(parents=True, exist_ok=True)
 
 class_names = classnames.split(",")
@@ -86,7 +91,7 @@ for imgpath in files:
     explainer = shap.Explainer(model_predict, masker, output_names=class_names)
 
     # Explain the image
-    shap_values = explainer(X[0:1], max_evals=20000, batch_size=50, outputs=shap.Explanation.argsort.flip[:1])
+    shap_values = explainer(X[0:1], max_evals=num_evals, batch_size=50, outputs=shap.Explanation.argsort.flip[:1])
 
     # Save SHAP values plot
     shap.image_plot(shap_values, show=False)
