@@ -15,6 +15,23 @@ https://academic.oup.com/nar/article/52/21/e99/7833676#google_vignette
 
 ```
 
+## Abstract
+```
+The OmicsFootPrint framework addresses the need for advanced multi-omics data analysis 
+methodologies by transforming data into intuitive two-dimensional circular images and 
+facilitating the interpretation of complex diseases. Utilizing deep neural networks and 
+incorporating the SHapley Additive exPlanations algorithm, the framework enhances model interpretability. 
+Tested with The Cancer Genome Atlas data, OmicsFootPrint effectively classified lung and breast cancer subtypes, 
+achieving high area under the curve (AUC) scores—0.98 ± 0.02 for lung cancer subtype differentiation and 
+0.83 ± 0.07 for breast cancer PAM50 subtypes, and successfully distinguished between invasive lobular and 
+ductal carcinomas in breast cancer, showcasing its robustness. It also demonstrated notable performance in 
+predicting drug responses in cancer cell lines, with a median AUC of 0.74, surpassing nine existing methods. 
+Furthermore, its effectiveness persists even with reduced training sample sizes. OmicsFootPrint marks an 
+enhancement in multi-omics research, offering a novel, efficient and interpretable approach that contributes 
+to a deeper understanding of disease mechanisms.
+```
+![Overview](OmicsFootprint.jpeg)
+
 ## Installation
 ```
 path_package=/path/conda/tf_new_epi_package
