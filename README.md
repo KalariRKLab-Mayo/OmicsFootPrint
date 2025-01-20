@@ -1,7 +1,7 @@
 # OmicsFootPrint
 
 ## Publication/Citation
-[Click here to visit Publication](https://academic.oup.com/nar/article/52/21/e99/7833676)
+[Click here to view Publication](https://academic.oup.com/nar/article/52/21/e99/7833676)
 ```
 Xiaojia Tang*, Naresh Prodduturi*, Kevin J Thompson, Richard Weinshilboum, Ciara C O’Sullivan, 
 Judy C Boughey, Hamid R Tizhoosh, Eric W Klee, Liewei Wang, Matthew P Goetz, Vera Suman, Krishna R Kalari, 
