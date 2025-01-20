@@ -2,8 +2,9 @@
 
 ## Publication/Citation
 ```
-Xiaojia Tang*, Naresh Prodduturi*, Kevin J Thompson, Richard Weinshilboum, Ciara C O’Sullivan, Judy C Boughey, Hamid R Tizhoosh, Eric W Klee, Liewei Wang, Matthew P Goetz, Vera Suman, Krishna R Kalari, <br/> 
-OmicsFootPrint: a framework to integrate and interpret multi-omics data using circular images and deep neural networks, <br/>
+Xiaojia Tang*, Naresh Prodduturi*, Kevin J Thompson, Richard Weinshilboum, Ciara C O’Sullivan, 
+Judy C Boughey, Hamid R Tizhoosh, Eric W Klee, Liewei Wang, Matthew P Goetz, Vera Suman, Krishna R Kalari, 
+OmicsFootPrint: a framework to integrate and interpret multi-omics data using circular images and deep neural networks, 
 Nucleic Acids Research, Volume 52, Issue 21, 27 November 2024, Page e99, https://doi.org/10.1093/nar/gkae915
 
 *The first two authors should be regarded as Joint First Authors.
@@ -55,7 +56,8 @@ run_dir=./sample_data
 script_dir=./src/General-ImageClassifier_efficient
 
 #create splits
-#1. split slides in to train(15%),val(15%),test(15%) according to number of patches and outcome labels (example file : $script_dir/src/epi_label_pred/train_test_val_anno.batch2.xls)
+#1. split slides in to train(15%),val(15%),test(15%) according to number of patches and outcome labels 
+(example file : $script_dir/src/epi_label_pred/train_test_val_anno.batch2.xls)
 #2. create directory structure images/train/0/,images/train/1/,images/val/0/,images/val/1/,images/test/0/,images/test/1/
 #3. move the created image patches to these directories according to the asigned category per slides
 
