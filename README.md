@@ -1,11 +1,14 @@
 # OmicsFootPrint
 
 ## Publication/Citation
+[Click here to visit Publication](https://academic.oup.com/nar/article/52/21/e99/7833676)
 ```
 Xiaojia Tang*, Naresh Prodduturi*, Kevin J Thompson, Richard Weinshilboum, Ciara C O’Sullivan, 
 Judy C Boughey, Hamid R Tizhoosh, Eric W Klee, Liewei Wang, Matthew P Goetz, Vera Suman, Krishna R Kalari, 
 OmicsFootPrint: a framework to integrate and interpret multi-omics data using circular images and deep neural networks, 
 Nucleic Acids Research, Volume 52, Issue 21, 27 November 2024, Page e99, https://doi.org/10.1093/nar/gkae915
+
+https://academic.oup.com/nar/article/52/21/e99/7833676#google_vignette
 
 *The first two authors should be regarded as Joint First Authors.
 
